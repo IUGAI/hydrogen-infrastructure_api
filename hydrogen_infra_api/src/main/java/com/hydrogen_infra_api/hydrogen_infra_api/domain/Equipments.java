@@ -31,6 +31,10 @@ public class Equipments {
 	private Double min_presure;
 	private Double max_presure;
 	
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})     //if we delete equipment do not delete this station
+	@JoinColumn(name="station_id")   
+	private Stations station;
+	
 
 	public Double getLimited_capacity() {
 		return limited_capacity;
